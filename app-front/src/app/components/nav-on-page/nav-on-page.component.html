@@ -1,0 +1,24 @@
+<nav class="nav">
+    <input 
+        type="checkbox" 
+        name="mobile-menu-toggle" 
+        id="mobileMenuToggle" 
+        class="mobile-menu-checkbox"
+        [(ngModel)]="mobileMenuChecked"
+    >
+    <ul (click)="closeNavigationMobileClick($event)" class="desktop-navigation">
+        <li *ngFor="let item of navItens" [style.--hover-color]="item.color">
+            <a href="#{{ item.name }}">
+                <img [src]="item.iconUrl" [alt]="item.name">&nbsp;
+                <span>{{ item.name }}</span>
+            </a>
+        </li>
+    </ul>
+    <div class="mobile-navigation">
+        <label for="mobileMenuToggle" class="mobile-menu-label visually-hidden">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </label>
+    </div>
+</nav>
