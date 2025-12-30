@@ -1,0 +1,31 @@
+// ==============================
+// Design Tokens
+// ==============================
+
+$color-nav-bg: rgba(170, 170, 170, 0.1);
+$color-border: rgba(255, 255, 255, 0.2);
+$blur-default: blur(5px);
+$shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+.topic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  padding: .7rem 1.2rem;
+  border-radius: 100px;  
+  background: $color-nav-bg;
+  border: 1px solid $color-border;
+  backdrop-filter: $blur-default;
+  
+  img {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: white;
+  }
+
+  .content {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.747);
+  }
+}
