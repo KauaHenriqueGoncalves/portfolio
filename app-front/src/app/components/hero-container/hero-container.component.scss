@@ -2,8 +2,32 @@
 // Design Tokens
 // ==============================
 
+$primary-glow: rgba(0, 210, 255, 0.5);
+$white-glow: rgba(255, 255, 255, 0.1);
 $background-grid-overlay: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), 
                           linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+
+
+// ==============================
+// Placeholders
+// ==============================
+
+@mixin btn-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
 
 .hero {
   background-color: #050505;
@@ -35,7 +59,7 @@ $background-grid-overlay: linear-gradient(to right, rgba(255,255,255,0.05) 1px, 
     color: white;
     text-transform: uppercase;
     letter-spacing: -2px;
-    margin: 20px 0;
+    margin: 20px 1rem;
 
     .outline {
       color: transparent;
@@ -50,20 +74,68 @@ $background-grid-overlay: linear-gradient(to right, rgba(255,255,255,0.05) 1px, 
   }
 }
 
-// (Estilo Apple/Linear)
+.button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  z-index: 10;
+  margin: 2.5rem 0 0;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+  }
+}
+
 .btn-main {
-  background: white;
-  color: black;
-  padding: 16px 32px;
-  border-radius: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 0 20px rgba(255,255,255,0.1);
-  transition: 0.3s;
+  @include btn-hero;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid white;
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3);
+    transform: translateY(-4px);
+    background-color: #f2f2f2;
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.15), 
+                0 0 15px $primary-glow;
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+.btn-link {
+  @include btn-hero;
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    transform: translateY(-4px);
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4),
+                inset 0 0 10px rgba(255, 255, 255, 0.1);
+    
+    // Pequeno detalhe de luz no topo
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.09), transparent);
+      transition: 0.6s;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
   }
 }
 

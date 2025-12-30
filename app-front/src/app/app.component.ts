@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavItemOnPage } from './interfaces/NavItemOnPage';
 
 @Component({
@@ -6,7 +6,7 @@ import { NavItemOnPage } from './interfaces/NavItemOnPage';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   navItens: NavItemOnPage[] = [
     { name: "home", iconUrl: "./assets/icons/home.png", color: "#22C55E" },
     { name: "about", iconUrl: "./assets/icons/about.png", color: "#22C55E" },
@@ -15,4 +15,23 @@ export class AppComponent {
   ];
 
   constructor() { }
+
+  ngOnInit(): void {
+    this.onObserverReveal();
+  }
+
+  onObserverReveal(): void {
+    const observer: IntersectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.05
+    });
+
+    const hiddenElements = document.querySelectorAll(".reveal");
+    hiddenElements.forEach((el) => observer.observe(el));
+  }
 }
