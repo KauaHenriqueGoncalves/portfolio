@@ -7,13 +7,15 @@ import { NavOnPageComponent } from './components/nav-on-page/nav-on-page.compone
 import { FormsModule } from '@angular/forms';
 import { HeroContainerComponent } from './components/hero-container/hero-container.component';
 import { TopicContainerComponent } from './components/topic-container/topic-container.component';
+import { TechStackCarouselComponent } from './components/tech-stack-carousel/tech-stack-carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavOnPageComponent,
     HeroContainerComponent,
-    TopicContainerComponent
+    TopicContainerComponent,
+    TechStackCarouselComponent
   ],
   imports: [
     BrowserModule,

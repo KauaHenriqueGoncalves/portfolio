@@ -8,6 +8,11 @@ $default-font-familly: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-family: $default-font-familly;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 // fluid animation on scroll
 html {
   scroll-behavior: smooth;

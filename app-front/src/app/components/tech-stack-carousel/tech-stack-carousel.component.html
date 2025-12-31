@@ -1,0 +1,8 @@
+<div class="carousel-container">
+    <ul class="carousel-track">
+        <li class="card" *ngFor="let card of carouselCards">
+            <img src="{{ card.stackImgUrl }}" alt="{{ card.name }}">
+            <p>{{ card.name }}</p>
+        </li>
+    </ul>
+</div>
