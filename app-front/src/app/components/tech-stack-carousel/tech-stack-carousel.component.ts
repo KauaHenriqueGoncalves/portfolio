@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, AfterViewInit, OnInit, Renderer2 } from '@angular/core';
 import { CardCarouselStack } from 'src/app/interfaces/CardCarouselStack';
 
 @Component({
@@ -6,20 +6,54 @@ import { CardCarouselStack } from 'src/app/interfaces/CardCarouselStack';
   templateUrl: './tech-stack-carousel.component.html',
   styleUrls: ['./tech-stack-carousel.component.scss']
 })
-export class TechStackCarouselComponent {
-  cards: CardCarouselStack[] = [
-    { stackImgUrl: "./../../assets/tech-stack/java-icon.png", name: "java" },
-    { stackImgUrl: "./../../assets/tech-stack/spring-boot-icon.png", name: "spring-Boot" },
-    { stackImgUrl: "./../../assets/tech-stack/maven-icon.png", name: "maven" },
-    { stackImgUrl: "./../../assets/tech-stack/graalvm-icon.png", name: "graalVM" },
-    { stackImgUrl: "./../../assets/tech-stack/rabbitmq-icon.png", name: "rabbitMQ" },
-    { stackImgUrl: "", name: "name-stack" },
-    { stackImgUrl: "", name: "name-stack" },
-    { stackImgUrl: "", name: "name-stack" },
-    { stackImgUrl: "", name: "fimname-stack" },
+export class TechStackCarouselComponent implements OnInit, AfterViewInit {
+  @Input() stackCards: CardCarouselStack[] = [
+    { stackImgUrl: "stack", name: "name-stack" }
   ];
 
-  carouselCards: CardCarouselStack[] = [...this.cards, ...this.cards];
+  carouselCards: CardCarouselStack[] = [...this.stackCards, ...this.stackCards];
 
-  constructor() { }
+  private removeMouseEnterListener?: () => void;
+
+  constructor(
+    private renderer: Renderer2
+  ) { }
+
+  ngOnInit(): void {
+    this.carouselCards = [...this.stackCards, ...this.stackCards, ...this.stackCards];
+  }
+
+  ngAfterViewInit(): void {
+    const carousel = document.querySelector<HTMLDivElement>(".carousel-track");
+
+    if (!carousel) return;
+
+    const duration: number = carousel.childNodes.length * 0.7;
+
+    this.renderer.setStyle(
+      carousel,
+      'animation',
+      `scroll ${duration}s linear infinite`
+    );
+
+    this.removeMouseEnterListener = this.renderer.listen(
+      carousel,
+      'mouseenter',
+      () => this.pauseAnimation(carousel)
+    );
+
+    this.renderer.listen(
+      carousel,
+      'mouseleave',
+      () => this.resumeAnimation(carousel)
+    );
+  }
+
+  private pauseAnimation(element: HTMLElement): void {
+    this.renderer.setStyle(element, 'animation-play-state', 'paused');
+  }
+
+  private resumeAnimation(element: HTMLElement): void {
+    this.renderer.setStyle(element, 'animation-play-state', 'running');
+  }
 }

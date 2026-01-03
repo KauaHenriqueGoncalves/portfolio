@@ -138,37 +138,3 @@ $background-grid-overlay: linear-gradient(to right, rgba(255,255,255,0.05) 1px, 
     transform: translateY(-1px);
   }
 }
-
-
-
-
-
-
-// .light-source {
-//   position: absolute;
-//   width: 500px;
-//   height: 500px;
-//   border-radius: 50%;
-//   filter: blur(100px);
-//   z-index: 1;
-//   opacity: 0.4;
-  
-//   &.one {
-//     background: #07d2ec;
-//     top: -100px;
-//     right: -100px;
-//     animation: moveLight 10s infinite alternate;
-//   }
-  
-//   &.two {
-//     background: #06f7a6;
-//     bottom: -100px;
-//     left: -100px;
-//     animation: moveLight 12s infinite alternate-reverse;
-//   }
-// }
-
-// @keyframes moveLight {
-//   from { transform: translate(0, 0); }
-//   to { transform: translate(-10%, 15%); }
-// }

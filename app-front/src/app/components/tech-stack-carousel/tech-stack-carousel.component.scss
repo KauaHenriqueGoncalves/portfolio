@@ -1,5 +1,6 @@
 .carousel-container {
     overflow: hidden;
+    max-width: 200rem;
     width: 100%;
     margin-top: 3rem;
     background-color: black;
@@ -20,7 +21,7 @@
     width: max-content;
     column-gap: 2.5rem;
     list-style: none;
-    animation: scroll 20s linear infinite;
+    animation: scroll 10s linear infinite;
 
     &:hover {
         animation-play-state: paused;
