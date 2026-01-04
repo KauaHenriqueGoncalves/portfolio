@@ -10,6 +10,7 @@ import { TopicContainerComponent } from './components/topic-container/topic-cont
 import { TechStackCarouselComponent } from './components/tech-stack-carousel/tech-stack-carousel.component';
 import { AboutMeContainerComponent } from './components/about-me-container/about-me-container.component';
 import { ProfileHeaderComponent } from './components/profile-header/profile-header.component';
+import { TimelineComponent } from './components/timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProfileHeaderComponent } from './components/profile-header/profile-head
     TopicContainerComponent,
     TechStackCarouselComponent,
     AboutMeContainerComponent,
-    ProfileHeaderComponent
+    ProfileHeaderComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,

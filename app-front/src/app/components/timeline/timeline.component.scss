@@ -1,0 +1,197 @@
+$bg-dark: #050505;
+$card-bg: #111;
+$text-color: #ccc;
+$accent-color: #fff;
+$line-color: #444;
+$top-connect: 120px;
+$top-dut: $top-connect - 8px;
+
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+    background-color: $bg-dark;
+    color: $text-color;
+    overflow: hidden;
+}
+
+.center-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: $line-color;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+
+    &.left {
+        left: 0;
+        text-align: left;
+
+        .connector {
+            right: 0;
+            transform-origin: left;
+        }
+
+        .dot {
+            right: -8px;
+        }
+    }
+
+    &.right {
+        left: 50%;
+        text-align: left;
+
+        .connector {
+            left: 0;
+            transform-origin: right;
+        }
+
+        .dot {
+            left: -8px;
+        }
+    }
+
+    .dot {
+        position: absolute;
+        top: $top-dut;
+        width: 12px;
+        height: 12px;
+        background: $bg-dark;
+        border: 2px solid $accent-color;
+        border-radius: 50%;
+        z-index: 2;
+        transform: scale(0);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition-delay: 0.2s;
+    }
+
+    .connector {
+        position: absolute;
+        top: $top-connect;
+        width: 0;
+        height: 1px;
+        background: $line-color;
+        transition: width 0.6s ease-in-out;
+        transition-delay: 0.4s;
+    }
+
+    .content-card {
+        background: $card-bg;
+        padding: 24px;
+        border-radius: 12px;
+        border: 1px solid #222;
+        position: relative;
+        top: 20px;
+        opacity: 0;
+        transition: all 0.6s ease-out;
+        transition-delay: 0.8s;
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+
+            h3 {
+                margin: 0;
+                color: $accent-color;
+                font-size: 1.2rem;
+            }
+
+            .main-icon {
+                font-size: 1.2rem;
+            }
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .tools {
+            display: flex;
+            gap: 10px;
+
+            .tool-circle {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background: #1a1a1a;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #333;
+                font-size: 0.9rem;
+
+                &:hover {
+                    border-color: $accent-color;
+                    color: $accent-color;
+                }
+            }
+        }
+    }
+
+    &.visible {
+        opacity: 1;
+
+        .dot {
+            transform: scale(1);
+        }
+
+        .connector {
+            width: 40px;
+        }
+
+        .content-card {
+            top: 0;
+            opacity: 1;
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .center-line {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 20px;
+
+        &.right,
+        &.left {
+            left: 0;
+        }
+
+        &.right .dot,
+        &.left .dot {
+            left: 13px;
+            right: auto;
+        }
+
+        &.right .connector,
+        &.left .connector {
+            left: 20px;
+            right: auto;
+            width: 0;
+        }
+
+        &.visible .connector {
+            width: 40px;
+        }
+    }
+}

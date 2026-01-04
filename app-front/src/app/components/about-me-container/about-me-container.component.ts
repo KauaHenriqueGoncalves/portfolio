@@ -1,5 +1,13 @@
 import { Component } from '@angular/core';
 
+interface TimelineStep {
+  id: number;
+  title: string;
+  description: string;
+  icon: string; // Ex: classe do FontAwesome ou caminho de SVG
+  tools: string[]; // Ícones menores (github, figma, etc)
+}
+
 @Component({
   selector: 'app-about-me-container',
   templateUrl: './about-me-container.component.html',

@@ -1,0 +1,29 @@
+<div class="timeline-container">
+  <div class="center-line"></div>
+
+  <div 
+    class="timeline-item" 
+    *ngFor="let step of steps; let i = index; let isEven = even"
+    [class.left]="!isEven" 
+    [class.right]="isEven"
+    #timelineItem>
+    
+    <div class="dot"></div>
+    
+    <div class="connector"></div>
+
+    <div class="content-card">
+      <div class="header">
+        <i [class]="step.icon" class="main-icon"></i>
+        <h3>{{ step.title }}</h3>
+      </div>
+      <p>{{ step.description }}</p>
+      
+      <div class="tools">
+        <div class="tool-circle" *ngFor="let tool of step.tools">
+          <i [class]="tool"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
