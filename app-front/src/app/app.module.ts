@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { HeroContainerComponent } from './components/hero-container/hero-container.component';
 import { TopicContainerComponent } from './components/topic-container/topic-container.component';
 import { TechStackCarouselComponent } from './components/tech-stack-carousel/tech-stack-carousel.component';
+import { AboutMeContainerComponent } from './components/about-me-container/about-me-container.component';
+import { ProfileHeaderComponent } from './components/profile-header/profile-header.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { TechStackCarouselComponent } from './components/tech-stack-carousel/tec
     NavOnPageComponent,
     HeroContainerComponent,
     TopicContainerComponent,
-    TechStackCarouselComponent
+    TechStackCarouselComponent,
+    AboutMeContainerComponent,
+    ProfileHeaderComponent
   ],
   imports: [
     BrowserModule,

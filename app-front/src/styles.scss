@@ -18,6 +18,17 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: #050505;
+}
+
+h1,
+h2,
+span,
+p {
+  color: #f2f2f2;
+}
+
 // state before appearing
 .reveal {
   opacity: 0;

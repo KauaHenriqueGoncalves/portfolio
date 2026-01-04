@@ -43,6 +43,5 @@ export class HeroContainerComponent {
     { stackImgUrl: "./../../assets/tech-stack/dart-icon.png", name: "Dart" },
   ];
 
-
   constructor() { }
 }

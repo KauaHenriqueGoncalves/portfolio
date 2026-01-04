@@ -1,14 +1,16 @@
 <header id="home">
-    <app-nav-on-page [navItens]="navItens"></app-nav-on-page>
+    <app-nav-on-page 
+        [navItens]="navItens"
+    ></app-nav-on-page>
     <app-hero-container></app-hero-container>
 </header>
 
 <main>
-    <section>
-        <h1 class="content">Main</h1>
+    <section id="about">
+        <app-about-me-container></app-about-me-container>
     </section>
 </main>
 
-<footer id="contact">
+<footer class="content" id="contact">
 
 </footer>
