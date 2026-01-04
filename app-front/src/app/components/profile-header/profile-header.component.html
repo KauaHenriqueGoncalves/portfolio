@@ -1,37 +1,25 @@
 <section class="profile-header" #header>
     <div class="profile-info">
         <figure>
-            <img src="./../../../assets/images/kaua-profile.png" alt="Foto de perfil">
+            <img [src]="urlProfile" alt="profile">
         </figure>
         <div class="content">
             <div class="title-row">
-                <h1>Kauã Henrique</h1>
+                <h1>{{ nameProfile }}</h1>
             </div>
-            <p>Full Stack Developer</p>
+            <p>{{ fieldProfile }}</p>
         </div>
     </div>
 
     <div class="profile-meta">
         <span class="location">
             <img src="./../../../assets/icons/pin-location.png" alt="icon-location">
-            Recife, PE
+            {{ location }}
         </span>
         <nav class="social-links">
-            <a href="#" class="icon-btn">
-                <img src="../../../assets/icons/github-wihte.png" alt="github">
-                <span>GitHub</span>
-            </a>
-            <a href="#" class="icon-btn">
-                <img src="../../../assets/icons/Linkedln-white.png" alt="linkedln">
-                <span>Linkedln</span>
-            </a>
-            <a href="#" class="icon-btn">
-                <img src="../../../assets/icons/whatsapp-white.png" alt="whatsapp">
-                <span>whatsapp</span>
-            </a>
-            <a href="#" class="icon-btn">
-                <img src="../../../assets/icons/download-white.png" alt="curriculum">
-                <span>curriculum</span>
+            <a target="_blank" [href]="btn.link" class="icon-btn" *ngFor="let btn of btnsLink">
+                <img [src]="btn.iconUrl" [alt]="btn.name">
+                <span>{{ btn.name }}</span>
             </a>
         </nav>
     </div>

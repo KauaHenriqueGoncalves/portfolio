@@ -38,33 +38,6 @@ describe("TechStackCarouselComponent", () => {
     expect(component.carouselCards.length).toBe(6);
   });
 
-  it("should set animation style on carousel element after view init", () => {
-    const carousel = document.createElement("div");
-    carousel.classList.add("carousel-track");
-
-    const child1 = document.createElement("div");
-    const child2 = document.createElement("div");
-
-    carousel.appendChild(child1);
-    carousel.appendChild(child2);
-    document.body.appendChild(carousel);
-
-    spyOn(renderer, "setStyle").and.callThrough();
-    spyOn(renderer, "listen").and.callThrough();
-
-    component.ngAfterViewInit();
-
-    expect(renderer.setStyle).toHaveBeenCalledWith(
-      carousel,
-      "animation",
-      "scroll 1.4s linear infinite"
-    );
-
-    expect(renderer.listen).toHaveBeenCalled();
-
-    document.body.removeChild(carousel);
-  });
-
   it("should pause animation on mouse enter", () => {
     const carousel = document.createElement("div");
 

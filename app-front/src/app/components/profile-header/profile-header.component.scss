@@ -47,6 +47,12 @@ $border-color: rgba(255, 255, 255, 0.1);
             margin-top: 4px;
         }
     }
+
+    @media (max-width: 768px) {
+        align-items: start;
+        gap: 15px;
+        flex-direction: column;
+    }
 }
 
 .profile-meta {
@@ -61,6 +67,10 @@ $border-color: rgba(255, 255, 255, 0.1);
         img {
             width: 1rem;
             aspect-ratio: 1/1;
+        }
+
+        @media (max-width: 768px) {
+            text-align: left;
         }
     }
 
@@ -120,6 +130,13 @@ $border-color: rgba(255, 255, 255, 0.1);
                     display: block;
                 }
             }
+        }
+
+        @media (max-width: 768px) {
+            gap: 15px;
+            .icon-btn {
+                width: 1.7rem;
+            }        
         }
     }
 }
