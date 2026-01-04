@@ -1,15 +1,16 @@
-<header>
-    <app-nav-on-page
+<header id="home">
+    <app-nav-on-page 
         [navItens]="navItens"
     ></app-nav-on-page>
-
-    <app-triforce-background></app-triforce-background>
-
-    <h1 class="content">header</h1>
+    <app-hero-container></app-hero-container>
 </header>
 
 <main>
-    <section>
-        <h1 class="content">Main</h1>
+    <section id="about">
+        <app-about-me-container></app-about-me-container>
     </section>
 </main>
+
+<footer class="content" id="contact">
+
+</footer>

@@ -1,0 +1,28 @@
+<section class="hero">
+  <div class="grid-overlay"></div>
+
+  <app-topic-container 
+    iconUrl="./../../../assets/icons/cursor.png" 
+    text="Welcome to my page!"
+    topic="hero">
+  </app-topic-container>
+
+  <div class="content">
+    <h1 class="glitch-text reveal">
+      Kauã <span class="outline">Henrique</span>
+    </h1>
+
+    <p class="description reveal">
+      Gosto de transformar ideias em experiências digitais <br> <span> simples, bonitas e funcionais. </span> 
+    </p>
+  </div>
+
+  <div class="button-group reveal">
+    <a href="#contact" class="btn-main">contact me</a>
+    <a href="#about" class="btn-link">about me</a>
+  </div>
+
+  <app-tech-stack-carousel
+    [stackCards]="stacksOnCarousel"
+  ></app-tech-stack-carousel>
+</section>
